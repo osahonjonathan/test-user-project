@@ -1,0 +1,40 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+  margin-top: 2rem;
+}
+
+.welcome {
+  font-size: 4rem;
+}
+
+.search-icon-container {
+  position: relative;
+  background-color: #ffffff;
+  width: 23rem;
+  height: 3rem;
+  border-radius: 25px;
+}
+
+.pi-search:before {
+  position: absolute;
+
+  font-size: 1.5rem;
+  color: #000000;
+  left: 20rem;
+}
+
+
+
+.pi-discord:before {
+  font-size: 3rem;
+}
+
+.log-out-btn-container {
+    margin-top: 1rem;
+}
+
+
+
+

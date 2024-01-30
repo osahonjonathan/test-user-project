@@ -1,0 +1,123 @@
+<div class="user-container">
+  <div class="container">
+    <div class="user-info">
+      <img [src]="user?.avatar" alt="User Avatar" class="user-image" />
+
+      <p>email: {{ user?.email }}</p>
+      <p>firstname : {{ user?.first_name }}</p>
+      <p>lastname: {{ user?.last_name }}</p>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <p-button
+      (click)="showDialog()"
+      label="Edit User"
+      styleClass="p-button-edit"
+    ></p-button>
+    <div>
+      <p-toast></p-toast>
+      <p-button
+        label="Delete User"
+        (click)="deleteUser()"
+        styleClass="p-button-delete"
+      ></p-button>
+    </div>
+  </div>
+  <div class="button-container">
+    <p-button
+      label="Back"
+      (click)="navigateHome()"
+      styleClass="p-button-edit"
+    ></p-button>
+  </div>
+
+  <p-dialog [(visible)]="visible" [style]="{ width: '50vw' }">
+    <div>
+      <form
+        [formGroup]="editForm"
+        #form="ngForm"
+        class="justify-content-center align-items-center"
+      >
+        <div class="edit-form-child">
+          <div class="form-input">
+            <label for="name" class="form-label">name</label>
+            <input
+              type="text"
+              pInputText
+              id="name"
+              name="name"
+              formControlName="name"
+              required
+              class="form-control form-control-sm"
+            />
+            <div
+              *ngIf="
+                editForm.controls['name'].invalid &&
+                (editForm.controls['name'].touched ||
+                  editForm.controls['name'].dirty)
+              "
+              style="color: red; font-size: 12px; margin-top: 3px"
+            >
+              <div *ngIf="editForm.controls['name'].errors?.['required']">
+                This field is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label for="job" class="form-label">job:</label>
+            <div class="input-group input-group-sm has-validation">
+              <input
+                type="text"
+                pInputText
+                id="job"
+                name="job"
+                formControlName="job"
+                required
+                class="form-control form-control-sm"
+              />
+
+              <div
+                *ngIf="
+                  editForm.controls['job'].invalid &&
+                  (editForm.controls['job'].touched ||
+                    editForm.controls['job'].dirty)
+                "
+                style="color: red; font-size: 12px; margin-top: 3px"
+              >
+                <div *ngIf="editForm.controls['job'].errors?.['required']">
+                  This field is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="edit-btn-container">
+          <div>
+            <p-toast></p-toast>
+            <p-button label="Proceed" (click)="editUser()"></p-button>
+          </div>
+
+          <p-button
+            label="Cancel"
+            (click)="closeModal()"
+            styleClass="p-button-delete"
+          ></p-button>
+        </div>
+      </form>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- <div class="card">
+  <p-toast></p-toast>
+  <button
+    type="button"
+    pButton
+    pRipple
+    (click)="showSuccess()"
+    label="Show"
+    class="p-button-success"
+  ></button>
+</div> -->

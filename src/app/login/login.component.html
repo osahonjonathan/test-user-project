@@ -1,0 +1,119 @@
+<div class="main">
+  <div class="form-container">
+    <div class="form-cont">
+      <form
+        [formGroup]="signinForm"
+        #form="ngForm"
+        class="justify-content-center align-items-center"
+      >
+        <div class="form-child">
+          <div *ngIf="!isMember">
+            <h2>Sign Up</h2>
+            <div>
+              <p>Please register to use our app</p>
+            </div>
+          </div>
+          <div *ngIf="isMember">
+            <div>
+              <h2>Login</h2>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              pInputText
+              id="email"
+              name="email"
+              formControlName="email"
+              required
+              minlength="3"
+              maxlength="250"
+              class="form-control form-control-sm"
+            />
+            <div
+              *ngIf="
+                signinForm.controls['email'].invalid &&
+                (signinForm.controls['email'].touched ||
+                  signinForm.controls['email'].dirty)
+              "
+              style="color: red; font-size: 12px; margin-top: 3px"
+            >
+              <div *ngIf="signinForm.controls['email'].errors?.['required']">
+                This field is required
+              </div>
+              <div *ngIf="signinForm.controls['email'].errors?.['email']">
+                Please enter a valid email
+              </div>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label for="password" class="form-label">Password:</label>
+            <div class="input-group input-group-sm has-validation">
+              <p-password
+                id="password"
+                name="password"
+                formControlName="password"
+                [toggleMask]="true"
+                required
+                minlength="5"
+                [feedback]="false"
+              ></p-password>
+              <div
+                *ngIf="
+                  signinForm.controls['password'].invalid &&
+                  (signinForm.controls['password'].touched ||
+                    signinForm.controls['password'].dirty)
+                "
+                style="color: red; font-size: 12px; margin-top: 3px"
+              >
+                <div
+                  *ngIf="signinForm.controls['password'].errors?.['minlength']"
+                >
+                  This field must have at least 5 characters
+                </div>
+                <div
+                  *ngIf="signinForm.controls['password'].errors?.['required']"
+                >
+                  This field is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <div *ngIf="!isMember" class="button-container">
+              <p-toast></p-toast>
+              <p-button
+                label="Sign Up"
+                (click)="signUp()"
+                styleClass="p-button-sign-up"
+              ></p-button>
+            </div>
+            <div *ngIf="isMember" class="button-container">
+              <p-toast></p-toast>
+              <p-button
+                label="Login"
+                (click)="login()"
+                styleClass="p-button-sign-up"
+              ></p-button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div>
+        <div *ngIf="!isMember">
+          <p>
+            already have an account
+            <a (click)="toggleMember()">login here</a>
+          </p>
+        </div>
+        <div *ngIf="isMember">
+          <p>not yet a member <a (click)="toggleMember()">Register</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

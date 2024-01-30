@@ -1,0 +1,23 @@
+<div class="main page">
+  <div class="nav-bar">
+    <div class="discord-icon-container">
+      <i class="pi pi-discord"></i>
+    </div>
+    <div class="img-container">
+      <img class="user-image" [src]="imageUrl" alt="Image" (click)="navigateUser()" />
+    </div>
+  </div>
+  <h2 class="welcome">Welcome {{ userName }} .</h2>
+  <div>
+    <div class="search-icon-container">
+      <i class="pi pi-search"></i>
+    </div>
+  </div>
+  <div class="log-out-btn-container">
+    <p-button
+      label="LogOut"
+      styleClass="p-button-log-out"
+      (click)="logOut()"
+    ></p-button>
+  </div>
+</div>

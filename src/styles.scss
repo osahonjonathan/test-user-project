@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import '~primeicons/primeicons.css';
+
+body {
+  width: 90%;
+  margin: auto;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.main {
+  height: 98vh;
+
+  
+}
+
+a {
+  color: blue;
+  cursor: pointer;
+}
+.form-label {
+  display: block;
+
+  margin-bottom: 5px;
+}
+
+.form-input {
+  margin-top: 10px;
+}
+
+.p-inputtext {
+  width: 22rem;
+}
+
+.p-button {
+  border: none;
+  outline: none;
+}
+.p-button-delete {
+  background-color: red !important;
+}
+
+
+.p-button-sign-up {
+  width: 22rem;
+  margin-top: 0.5rem;
+}
+
+
+
+.edit-form-child {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.edit-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+
+.p-button-log-out {
+    border-radius: 1rem;
+    width: 8rem;
+    height: 2.3rem;
+}
+
+.user-image {
+    border-radius: 50%;
+    width: 4rem;
+}
